@@ -1,2 +1,3 @@
 elastic_passwords.txt
 nginx/cache/**
+nginx/error.log
