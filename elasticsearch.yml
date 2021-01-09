@@ -2,5 +2,4 @@ cluster.name: "docker-cluster"
 network.host: 0.0.0.0
 #path.logs: /var/log/elasticsearch
 
-xpack.security.audit.enabled: false
-
+xpack.security.enabled: true
