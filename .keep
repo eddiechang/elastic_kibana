@@ -1,2 +1,5 @@
 ./esdata
 ./esdata/log
+./nginx
+./nginx/cache
+./nginx/letsencrypt
