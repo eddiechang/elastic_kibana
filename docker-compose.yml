@@ -29,7 +29,8 @@ services:
     image: docker.elastic.co/kibana/kibana:7.10.1
     container_name: kibana
     environment:
-      ELASTICSEARCH_URL: "http://elasticsearch:9200"
+      - ELASTICSEARCH_URL="http://elasticsearch:9200"
+      #- XPACK.REPORTING.ENABLED=false
     volumes:
       - ./kibana.yml:/usr/share/kibana/config/kibana.yml
     ports:
