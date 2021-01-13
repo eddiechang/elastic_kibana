@@ -1,12 +1,10 @@
-version: '3'
+version: '2.2'
 
 services:
 
   elasticsearch:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.10.1
     container_name: elasticsearch
-    networks:
-      - my_servers
     environment:
       - node.name=elasticsearch
       - discovery.seed_hosts=elasticsearch
@@ -30,9 +28,6 @@ services:
   kibana:
     image: docker.elastic.co/kibana/kibana:7.10.1
     container_name: kibana
-    networks:
-      - my_servers
-      - my_nginx
     environment:
       - ELASTICSEARCH_URL="http://elasticsearch:9200"
       #- XPACK.REPORTING.ENABLED=false
@@ -43,10 +38,3 @@ services:
     depends_on:
       - elasticsearch
 
-networks:
-  my_servers:
-    external:
-      name: my_servers
-  my_nginx:
-    external:
-      name: my_nginx
