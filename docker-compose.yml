@@ -6,7 +6,7 @@ services:
     image: docker.elastic.co/elasticsearch/elasticsearch:7.10.1
     container_name: elasticsearch
     networks:
-      - my_servers
+      - my_elk
     environment:
       - node.name=elasticsearch
       - discovery.seed_hosts=elasticsearch
@@ -31,7 +31,7 @@ services:
     image: docker.elastic.co/kibana/kibana:7.10.1
     container_name: kibana
     networks:
-      - my_servers
+      - my_elk
       - my_nginx
     environment:
       - ELASTICSEARCH_URL="http://elasticsearch:9200"
@@ -44,9 +44,9 @@ services:
       - elasticsearch
 
 networks:
-  my_servers:
+  my_elk:
     external:
-      name: my_servers
+      name: my_elk
   my_nginx:
     external:
       name: my_nginx
